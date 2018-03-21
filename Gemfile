@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_calendar', '~> 2.0'
 gem 'pry-rails', group: :development
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'devise'
