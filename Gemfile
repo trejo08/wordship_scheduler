@@ -66,3 +66,7 @@ gem 'pry-rails', group: :development
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'devise'
+gem 'responders'
+gem 'simple_form'
+
+gem 'bootstrap', '~> 4.1.1'

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  director: false
+  schedule: one
+  member: one
+  member_role: one
+
+two:
+  director: false
+  schedule: two
+  member: two
+  member_role: two

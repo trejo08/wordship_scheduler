@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: 2018-05-13 03:33:30
+  single_leader: false
+
+two:
+  service: 2018-05-13 03:33:30
+  single_leader: false
