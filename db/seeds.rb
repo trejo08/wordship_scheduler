@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+unless Role.any?
+  5.times do
+    Role.create(name: Faker::Company.profession)
+  end
+end
+
+unless Member.any?
+  15.times do
+    Member.create(
+      name: Faker::Name.first_name,
+      lastname: Faker::Name.last_name,
+      dob: Faker::Date.birthday(18, 55)
+    )
+  end
+end

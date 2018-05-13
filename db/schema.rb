@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_13_092921) do
+ActiveRecord::Schema.define(version: 2018_05_13_093940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,27 @@ ActiveRecord::Schema.define(version: 2018_05_13_092921) do
     t.index ["role_id", "member_id"], name: "index_members_roles_on_role_id_and_member_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.boolean "director"
+    t.bigint "schedule_id"
+    t.bigint "member_id"
+    t.bigint "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_players_on_member_id"
+    t.index ["role_id"], name: "index_players_on_role_id"
+    t.index ["schedule_id"], name: "index_players_on_schedule_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "service", null: false
+    t.boolean "single_leader", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,5 +78,8 @@ ActiveRecord::Schema.define(version: 2018_05_13_092921) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "players", "members"
+  add_foreign_key "players", "roles"
+  add_foreign_key "players", "schedules"
   add_foreign_key "users", "members"
 end
